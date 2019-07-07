@@ -41,6 +41,7 @@ module.exports.getByUserName = function(username , callback) {
     User.findOne(query , callback);
 }
 
+//hashes password and then saves the user in the database
 module.exports.addUser = function(newUser , callback) {
     bcrypt.genSalt(10 , (err , salt) => {
         bcrypt.hash(newUser.password , salt , (err , hash) => {
