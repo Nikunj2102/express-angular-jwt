@@ -42,7 +42,7 @@ router.post('/authenticate' , (req , res, next) => {
             if(isMatch) {
                 const token = jwt.sign(user.toJSON() , config.secret , {
                     //toJSON method is used to convert mongoose obj to json
-                    expiresIn: 3600
+                    expiresIn: 604800
                 });
 
                 res.json({
