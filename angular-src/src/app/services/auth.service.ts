@@ -27,10 +27,10 @@ export class AuthService {
   }
 
   getProfile(): Observable<any> {
-    let headers = new HttpHeaders();
     this.loadToken();
-    headers.append('Authorization' , this.authToken);
-    headers.append('Content-Type' , 'application/json');
+    let headers = new HttpHeaders({'Authorization' : this.authToken , 'Content-Type' : 'application/json'});
+    // headers.append('Authorization' , this.authToken);
+    // headers.append('Content-Type' , 'application/json');
     return this.http.get(`http://${this.serverUrl}/users/profile` , {headers: headers});
   }
 
