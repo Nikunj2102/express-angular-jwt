@@ -9,7 +9,7 @@ export class AuthService implements OnInit{
 
   authToken: any;
   user: any;
-  serverUrl: string = 'localhost:3000';
+  //serverUrl: string = 'localhost:3000';
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +23,7 @@ export class AuthService implements OnInit{
     return this.http.post(`users/authenticate` , user , {headers: headers});
   }
 
-  getProfile(): Observable<any> {
+  getProfile(): Observable<any>{
     this.loadToken();
     let headers = new HttpHeaders({'Authorization' : this.authToken , 'Content-Type' : 'application/json'});
     return this.http.get(`users/profile` , {headers: headers});

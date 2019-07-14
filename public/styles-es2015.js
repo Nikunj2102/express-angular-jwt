@@ -557,7 +557,7 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/nikunj/Desktop/Work/Web/project/meanAuth/angular-src/src/styles.css */"./src/styles.css");
+module.exports = __webpack_require__(/*! /home/nikunj/Desktop/Work/Web/project/express-angular-jwt/angular-src/src/styles.css */"./src/styles.css");
 
 
 /***/ })

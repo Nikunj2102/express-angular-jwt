@@ -722,22 +722,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var AuthService = /** @class */ (function () {
+    //serverUrl: string = 'localhost:3000';
     function AuthService(http) {
         this.http = http;
-        this.serverUrl = 'localhost:3000';
     }
     AuthService.prototype.registerUser = function (user) {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' });
-        return this.http.post("http://" + this.serverUrl + "/users/register", user, { headers: headers });
+        return this.http.post("users/register", user, { headers: headers });
     };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' });
-        return this.http.post("http://" + this.serverUrl + "/users/authenticate", user, { headers: headers });
+        return this.http.post("users/authenticate", user, { headers: headers });
     };
     AuthService.prototype.getProfile = function () {
         this.loadToken();
         var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Authorization': this.authToken, 'Content-Type': 'application/json' });
-        return this.http.get("http://" + this.serverUrl + "/users/profile", { headers: headers });
+        return this.http.get("users/profile", { headers: headers });
     };
     AuthService.prototype.loadToken = function () {
         var token = localStorage.getItem('id_token');
@@ -879,7 +879,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/nikunj/Desktop/Work/Web/project/meanAuth/angular-src/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /home/nikunj/Desktop/Work/Web/project/express-angular-jwt/angular-src/src/main.ts */"./src/main.ts");
 
 
 /***/ })
