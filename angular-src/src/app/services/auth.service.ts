@@ -15,18 +15,18 @@ export class AuthService implements OnInit{
 
   registerUser(user):any {
     let headers = new HttpHeaders({'Content-Type': 'application/json'});
-    return this.http.post(`http://${this.serverUrl}/users/register` , user , {headers: headers});    
+    return this.http.post(`users/register` , user , {headers: headers});    
   }
 
   authenticateUser(user):any {
     let headers = new HttpHeaders({'Content-Type': 'application/json'});
-    return this.http.post(`http://${this.serverUrl}/users/authenticate` , user , {headers: headers});
+    return this.http.post(`users/authenticate` , user , {headers: headers});
   }
 
   getProfile(): Observable<any> {
     this.loadToken();
     let headers = new HttpHeaders({'Authorization' : this.authToken , 'Content-Type' : 'application/json'});
-    return this.http.get(`http://${this.serverUrl}/users/profile` , {headers: headers});
+    return this.http.get(`users/profile` , {headers: headers});
   }
 
   loadToken() {
