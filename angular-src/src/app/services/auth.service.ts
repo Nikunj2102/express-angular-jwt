@@ -1,12 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable , OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements OnInit{
 
   authToken: any;
   user: any;
@@ -15,22 +14,18 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   registerUser(user):any {
-    let headers = new HttpHeaders();
-    headers.append('Content-Type' , 'application/json');
+    let headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post(`http://${this.serverUrl}/users/register` , user , {headers: headers});    
   }
 
   authenticateUser(user):any {
-    let headers = new HttpHeaders();
-    headers.append('Content-Type' , 'application/json');
+    let headers = new HttpHeaders({'Content-Type': 'application/json'});
     return this.http.post(`http://${this.serverUrl}/users/authenticate` , user , {headers: headers});
   }
 
   getProfile(): Observable<any> {
     this.loadToken();
     let headers = new HttpHeaders({'Authorization' : this.authToken , 'Content-Type' : 'application/json'});
-    // headers.append('Authorization' , this.authToken);
-    // headers.append('Content-Type' , 'application/json');
     return this.http.get(`http://${this.serverUrl}/users/profile` , {headers: headers});
   }
 
@@ -50,5 +45,15 @@ export class AuthService {
     this.authToken = null;
     this.user = null;
     localStorage.clear();
+  }
+
+  checkLogIn() {
+    if(localStorage.length === 0) {
+      return false;
+    }
+    return true;
+  }
+
+  ngOnInit() {
   }
 }

@@ -7,13 +7,19 @@
     </ul>
 
     <ul class="navbar-right navbar-nav">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authService.checkLogIn()">
         <a class="nav-link" routerLink="/login" routerLinkAcive="active">Login</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.checkLogIn()">
+        <a class="nav-link" routerLink="/profile" routerLinkAcive="active">Profile</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.checkLogIn()">
+        <a class="nav-link" routerLink="/dashboard" routerLinkAcive="active">Dashboard</a>
+      </li>
+      <li class="nav-item" *ngIf="!authService.checkLogIn()">
             <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.checkLogIn()">
         <a class="nav-link" href='#' (click)="onLogoutClick()">Logout</a>
       </li>
     </ul>
