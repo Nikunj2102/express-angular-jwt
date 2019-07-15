@@ -38,7 +38,7 @@ app.use('/users' , users);
 
 //routes
 app.get('/' , (req , res) => {
-    res.send("Invalid endpoint");    
+    res.sendFile(__dirname + path.resolve('./public/index.html'));    
 });
 
 //listen for requests
