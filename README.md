@@ -1,7 +1,7 @@
 # Mean Auth App
 This app uses __jwt__ to protect routes , mlab service to store the content of the user. It also __excrypts__ the password of the user after the user has registered and uses __email validator__ to check if the entered email is valid or not. The JWT token will be stored in the localStorage of the browser.
 
-**_RUN APP**: node app_
+**RUN APP**: _node app_
 
 >This is the home page where you have the option to either register or login
 ![Github Logo](/images/img3.png)
